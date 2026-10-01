@@ -11,7 +11,7 @@ import { tokenStorage } from "@/utils/storage";
  * call, every other pending request awaits that same in-flight promise
  * instead of firing its own refresh request.
  */
-const baseURL = import.meta.env.VITE_API_BASE_URL;
+const baseURL = "https://nursify.pythonanywhere.com";
 
 export const api = axios.create({ baseURL });
 
