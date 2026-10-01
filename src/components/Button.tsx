@@ -1,12 +1,13 @@
-import { ButtonHTMLAttributes, forwardRef } from "react";
-import { motion } from "framer-motion";
+import { forwardRef } from "react";
+import { HTMLMotionProps, motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
 
 type Variant = "primary" | "secondary" | "ghost" | "danger";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends HTMLMotionProps<"button"> {
   variant?: Variant;
   isLoading?: boolean;
+  children?: React.ReactNode;
 }
 
 const VARIANT_CLASSES: Record<Variant, string> = {
