@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply antialiased;
+  }
+  body {
+    @apply bg-surface text-ink font-sans dark:bg-surface-dark dark:text-white transition-colors duration-200;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display text-ink dark:text-white;
+  }
+  ::selection {
+    @apply bg-clinical-200 text-clinical-900;
+  }
+  *:focus-visible {
+    @apply outline-none ring-2 ring-clinical-400 ring-offset-2 ring-offset-surface dark:ring-offset-surface-dark;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-border dark:bg-border-dark rounded-full;
+  }
+}
