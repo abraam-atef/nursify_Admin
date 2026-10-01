@@ -122,7 +122,7 @@ export function Questions() {
             onChange={(e) => setFilter(e.target.value)}
           />
           {questions.filter((f) => {
-            return filter.toLowerCase() === "" ? f : f.text.toLowerCase().includes(filter)
+            return filter.toLowerCase() === "" ? f : f.text.toLowerCase().includes(filter.toLowerCase())
           }).map((q) => (
             <Card key={q.id} className="flex flex-col gap-2">
               <div className="flex items-start justify-between gap-3">
