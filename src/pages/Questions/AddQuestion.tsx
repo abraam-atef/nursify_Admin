@@ -105,6 +105,7 @@ export function AddQuestion() {
   const [choices, setChoices] = useState<string[]>([]);
   const [errors, setErrors] = useState<FieldErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitting2, setIsSubmitting2] = useState(false);
 
   const ActiveForm = type ? FORM_BY_TYPE[type] : null;
 
@@ -131,7 +132,7 @@ export function AddQuestion() {
     setErrors(validationErrors);
     if (!payload) return;
 
-    setIsSubmitting(true);
+    ButtonType === "create" ? setIsSubmitting(true) : setIsSubmitting2(true);
     try {
       await questionsApi.create({ ...payload, chapter: id });
       show("Question created.", "success");
@@ -194,7 +195,7 @@ export function AddQuestion() {
             <Button onClick={() => handleSubmit("create")} isLoading={isSubmitting} disabled={!type}>
               Create Question
             </Button>
-            <Button onClick={() => handleSubmit("AddAnother")} isLoading={isSubmitting} disabled={!type}>
+            <Button onClick={() => handleSubmit("AddAnother")} isLoading={isSubmitting2} disabled={!type}>
               Save And Add Another
             </Button>
           </div>
