@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { ArrowLeft, ListChecks, Plus, Trash2 } from "lucide-react";
+import { ArrowLeft, ListChecks, Plus, Trash2 ,ClipboardCheckIcon } from "lucide-react";
 import { chaptersApi } from "@/api/chapters.api";
 import { extractErrorMessage } from "@/api/axios";
 import { Chapter } from "@/types/chapter";
@@ -110,7 +110,7 @@ export function Chapters() {
         <Table
           columns={[
             { header: "Chapter", render: (c) => <span className="font-medium">{c.name}</span> },
-            { header: "ID", render: (c) => `#${c.id}` },
+            // { header: "ID", render: (c) => `#${c.id}` },
             {
               header: "Actions",
               className: "text-right",
@@ -120,7 +120,13 @@ export function Chapters() {
                     to={`/chapters/${c.id}/questions`}
                     className="text-sm font-medium text-clinical-600 hover:underline dark:text-clinical-300"
                   >
-                    View questions
+                    <button
+                    onClick={() => setPendingDelete(c)}
+                    aria-label={`Delete ${c.name}`}
+                    className="text-ink-light hover:text-pulse-500 dark:text-white/40"
+                  >
+                    <ClipboardCheckIcon className="h-4 w-4" />
+                  </button>
                   </Link>
                   <button
                     onClick={() => setPendingDelete(c)}

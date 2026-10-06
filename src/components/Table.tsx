@@ -15,7 +15,7 @@ interface TableProps<T> {
 export function Table<T>({ columns, rows, getRowKey }: TableProps<T>) {
   return (
     <div className="scrollbar-thin overflow-x-auto rounded-card border border-border dark:border-border-dark">
-      <table className="w-full min-w-[480px] border-collapse text-left text-sm">
+      <table className="w-full border-collapse text-left text-sm">
         <thead>
           <tr className="border-b border-border bg-black/[0.02] dark:border-border-dark dark:bg-white/[0.03]">
             {columns.map((col) => (
