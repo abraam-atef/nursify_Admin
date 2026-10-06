@@ -196,7 +196,7 @@ export function AddQuestion() {
               Create Question
             </Button>
             <Button onClick={() => handleSubmit("AddAnother")} isLoading={isSubmitting2} disabled={!type}>
-              Save And Add Another
+              Save & Add Another
             </Button>
           </div>
         </div>
