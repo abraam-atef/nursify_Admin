@@ -140,7 +140,7 @@ export function AddQuestion() {
     } catch (err) {
       show(extractErrorMessage(err, "Couldn't create the question."), "error");
     } finally {
-      setIsSubmitting(false);
+      ButtonType === "create" ? setIsSubmitting(false) : setIsSubmitting2(false);
     }
   };
 
