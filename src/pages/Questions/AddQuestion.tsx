@@ -1,4 +1,4 @@
-import { FormEvent, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { questionsApi } from "@/api/questions.api";
@@ -120,8 +120,8 @@ export function AddQuestion() {
     setErrors({});
   };
 
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (ButtonType: string) => {
+
     if (!type) {
       setErrors({ type: "Select a question type first." });
       return;
@@ -135,7 +135,7 @@ export function AddQuestion() {
     try {
       await questionsApi.create({ ...payload, chapter: id });
       show("Question created.", "success");
-      navigate(`/chapters/${id}/questions`);
+      ButtonType === "create" ? navigate(`/chapters/${id}/questions`) : setType("");
     } catch (err) {
       show(extractErrorMessage(err, "Couldn't create the question."), "error");
     } finally {
@@ -158,7 +158,7 @@ export function AddQuestion() {
       </div>
 
       <Card className="max-w-xl">
-        <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5">
           <Select
             label="Question type"
             placeholder="Select a question type…"
@@ -191,11 +191,14 @@ export function AddQuestion() {
             <Button type="button" variant="ghost" onClick={() => navigate(`/chapters/${id}/questions`)}>
               Cancel
             </Button>
-            <Button type="submit" isLoading={isSubmitting} disabled={!type}>
+            <Button onClick={() => handleSubmit("create")} isLoading={isSubmitting} disabled={!type}>
               Create Question
             </Button>
+            <Button onClick={() => handleSubmit("AddAnother")} isLoading={isSubmitting} disabled={!type}>
+              Save And Add Another
+            </Button>
           </div>
-        </form>
+        </div>
       </Card>
     </div>
   );
