@@ -1,5 +1,5 @@
-import { Textarea } from "@/components/Textarea";
 import { QuestionFormProps } from "./types";
+import { Input } from "../Input";
 
 const SLOT_COUNT = 4;
 
@@ -36,7 +36,7 @@ export function ChooseForm({
 
   return (
     <div className="flex flex-col gap-4">
-      <Textarea
+      <Input
         label="Question"
         placeholder="e.g. Which organ pumps blood?"
         value={text}

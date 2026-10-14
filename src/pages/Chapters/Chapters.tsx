@@ -68,7 +68,7 @@ export function Chapters() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-xl font-semibold">Chapters</h1>
-            <p className="text-sm text-ink-light dark:text-white/50">Subject #{id}</p>
+            <p className="text-sm text-ink-light dark:text-white/50">Subject #{id} , chapters #{chapters.length}</p>
           </div>
           <Link to={`/subjects/${subjectId}/chapters/add`}>
             <Button>

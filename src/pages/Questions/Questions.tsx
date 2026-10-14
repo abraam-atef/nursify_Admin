@@ -74,7 +74,7 @@ export function Questions() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-xl font-semibold">Questions</h1>
-            <p className="text-sm text-ink-light dark:text-white/50">Chapter #{id}</p>
+            <p className="text-sm text-ink-light dark:text-white/50">Quistions #{questions.length}</p>
           </div>
 
           <Link to={`/chapters/${id}/questions/add`}>

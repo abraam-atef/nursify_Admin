@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { Textarea } from "@/components/Textarea";
 import { RadioGroup } from "@/components/RadioGroup";
 import { QuestionFormProps } from "./types";
+import { Input } from "../Input";
 
 const OPTIONS = [
   { value: "True", label: "True" },
@@ -26,7 +26,7 @@ export function TrueFalseForm({
 
   return (
     <div className="flex flex-col gap-4">
-      <Textarea
+      <Input
         label="Statement"
         placeholder="e.g. The heart has four chambers."
         value={text}

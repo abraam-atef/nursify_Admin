@@ -1,6 +1,7 @@
 import { Plus, Trash2 } from "lucide-react";
-import { Input } from "@/components/Input";
+
 import { Button } from "@/components/Button";
+import { Textarea } from "../Textarea";
 
 interface DynamicAnswerListProps {
   values: string[];
@@ -37,7 +38,7 @@ export function DynamicAnswerList({ values, onChange, error, itemLabel = "Answer
         {rows.map((val, i) => (
           <div key={i} className="flex items-end gap-2">
             <div className="flex-1">
-              <Input
+              <Textarea
                 label={`${itemLabel} ${i + 1}`}
                 value={val}
                 onChange={(e) => updateAt(i, e.target.value)}
