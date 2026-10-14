@@ -78,7 +78,7 @@ export function Login() {
         <Input
           label="name"
           type="text"
-          autoComplete="username"
+          autoComplete="additional-name"
           value={form.username}
           onChange={(e) => setForm((f) => ({ ...f, username: e.target.value }))}
           error={errors.username}
