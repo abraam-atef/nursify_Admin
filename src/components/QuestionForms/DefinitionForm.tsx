@@ -1,4 +1,3 @@
-import { Textarea } from "@/components/Textarea";
 import { Input } from "@/components/Input";
 import { QuestionFormProps } from "./types";
 
@@ -12,7 +11,7 @@ export function DefinitionForm({ text, onTextChange, textError, answers, onAnswe
         onChange={(e) => onTextChange(e.target.value)}
         error={textError}
       />
-      <Textarea
+      <Input
         label="Answer"
         placeholder="e.g. The study of body structure"
         value={answers[0] ?? ""}
