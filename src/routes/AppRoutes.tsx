@@ -9,12 +9,14 @@ import { Chapters } from "@/pages/Chapters/Chapters";
 import { AddChapter } from "@/pages/Chapters/AddChapter";
 import { Questions } from "@/pages/Questions/Questions";
 import { AddQuestion } from "@/pages/Questions/AddQuestion";
+import { GoogleCallbackHandler } from "@/pages/googleCallback";
 
 export function AppRoutes() {
   return (
     <Routes>
       <Route element={<AuthLayout />}>
         <Route path="/login" element={<Login />} />
+        <Route path="/auth/google/callback" element={<GoogleCallbackHandler />} />
       </Route>
 
       <Route element={<ProtectedRoute />}>

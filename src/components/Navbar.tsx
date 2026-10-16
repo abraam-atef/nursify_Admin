@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { LogOut, Menu, Moon, Sun } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { useTheme } from "@/hooks/useTheme";
+import { userStorage } from "@/utils/storage";
 
 function useBreadcrumb(): string {
   const { pathname } = useLocation();
@@ -19,9 +20,11 @@ interface NavbarProps {
 }
 
 export function Navbar({ onMenuClick }: NavbarProps) {
-  const { admin, logout } = useAuth();
+  const { logout } = useAuth();
   const { theme, toggleTheme } = useTheme();
   const breadcrumb = useBreadcrumb();
+  const adminString = userStorage.getUser()
+  const admin = JSON.parse(adminString ?? "")
 
   return (
     <header className="sticky top-0 z-30 flex items-center justify-between border-b border-border bg-panel/90 px-4 py-3 backdrop-blur dark:border-border-dark dark:bg-panel-dark/90 md:px-6">

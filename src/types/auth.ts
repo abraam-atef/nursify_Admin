@@ -1,11 +1,14 @@
 export interface AdminUser {
-  id: number;
+  pk: number;
   username: string;
 }
 
 export interface LoginCredentials {
   username: string;
   password: string;
+}
+export interface GoogleLoginCredentials {
+  code: string;
 }
 
 export interface AuthTokens {
@@ -14,5 +17,5 @@ export interface AuthTokens {
 }
 
 export interface LoginResponse extends AuthTokens {
-  admin?: AdminUser;
+  user?: AdminUser;
 }

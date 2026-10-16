@@ -1,3 +1,5 @@
+import { AdminUser } from "@/types/auth";
+
 /**
  * Centralized LocalStorage access. Keeping every key name in one place
  * avoids typos scattered across the codebase and makes it easy to see
@@ -7,6 +9,7 @@ const KEYS = {
   access: "nursify_access_token",
   refresh: "nursify_refresh_token",
   theme: "nursify_theme",
+  user: "user",
 } as const;
 
 export type ThemeValue = "light" | "dark";
@@ -43,3 +46,12 @@ export const themeStorage = {
     localStorage.setItem(KEYS.theme, value);
   },
 };
+
+export const userStorage = {
+  getUser(): string | null {
+    return localStorage.getItem(KEYS.user);
+  },
+  setUser(user: AdminUser): void {
+    return localStorage.setItem(KEYS.user, JSON.stringify(user));
+  },
+}

@@ -13,7 +13,7 @@ import { tokenStorage } from "@/utils/storage";
  */
 const baseURL = "https://nursify.pythonanywhere.com";
 
-export const api = axios.create({ baseURL });
+export const api = axios.create({ baseURL,withCredentials:true });
 
 interface RetriableConfig extends InternalAxiosRequestConfig {
   _retry?: boolean;
@@ -56,7 +56,7 @@ api.interceptors.response.use(
     }
 
     // Never attempt to refresh on the refresh/login endpoints themselves.
-    if (originalRequest.url?.includes("/auth/refresh") || originalRequest.url?.includes("/auth/login")) {
+    if (originalRequest.url?.includes("/auth/token/refresh/") || originalRequest.url?.includes("/auth/login")) {
       return Promise.reject(error);
     }
 
